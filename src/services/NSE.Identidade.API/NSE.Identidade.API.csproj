@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\building blocks\NSE.WebAPI.Core\NSE.WebAPI.Core.csproj" />
-    <ProjectReference Include="..\NSE.Cliente.API\NSE.Cliente.API.csproj" />
   </ItemGroup>
 
 
