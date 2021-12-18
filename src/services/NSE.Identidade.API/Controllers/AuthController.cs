@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using NSE.Identidade.API.Extensions;
 using NSE.Identidade.API.Models;
+using NSE.WebAPI.Core.Controllers;
 using NSE.WebAPI.Core.Identidade;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace NSE.Identidade.API.Controllers
         [HttpPost("nova-conta")]
         public async Task<ActionResult> Registrar(UsuarioRegistro usuarioRegistro)
         {
-           // return new StatusCodeResult(404);
+            // return new StatusCodeResult(404);
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
@@ -47,7 +48,7 @@ namespace NSE.Identidade.API.Controllers
                 EmailConfirmed = true
             };
 
-            var result = await _userManager.CreateAsync(user, usuarioRegistro.Senha );
+            var result = await _userManager.CreateAsync(user, usuarioRegistro.Senha);
 
             if (result.Succeeded)
             {
@@ -62,6 +63,7 @@ namespace NSE.Identidade.API.Controllers
 
             return CustomResponse();
         }
+
 
         [HttpPost("autenticar")]
         public async Task<ActionResult> Login(UsuarioLogin usuarioLogin)
