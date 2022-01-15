@@ -87,7 +87,10 @@ namespace NSE.MessageBus
                     TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
 
 
-            policy.Execute(() => { RabbitHutch.CreateBus(_connectionString)});
+            policy.Execute(() => 
+            {
+                _bus = RabbitHutch.CreateBus(_connectionString); 
+            });
             
             //_bus = RabbitHutch.CreateBus(_connectionString);
 
