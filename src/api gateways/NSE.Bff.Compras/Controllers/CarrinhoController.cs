@@ -27,7 +27,7 @@ namespace NSE.Bff.Compras.Controllers
         [Route("compras/carrinho")]
         public async Task<IActionResult> Index()
         {
-            return CustomResponse(_carrinhoService.ObterCarrinho());
+            return CustomResponse(await _carrinhoService.ObterCarrinho());
         }
 
         [HttpGet]

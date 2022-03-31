@@ -86,7 +86,7 @@ namespace NSE.Carrinho.API.Controllers
 
         private async Task<CarrinhoCliente> ObterCarrinhoCliente()
         {
-            return await _context.CarrinhoCliente
+                 return await _context.CarrinhoCliente
                 .Include(c => c.Itens)
                 .FirstOrDefaultAsync(c => c.ClienteId == _user.ObterUserId());
         }

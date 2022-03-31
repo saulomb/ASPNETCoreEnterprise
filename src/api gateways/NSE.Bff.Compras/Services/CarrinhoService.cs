@@ -11,7 +11,7 @@ namespace NSE.Bff.Compras.Services
     public interface ICarrinhoService
     {
         Task<CarrinhoDTO> ObterCarrinho();
-        //Task<int> ObterQuantidadeCarrinho();
+        Task<int> ObterQuantidadeCarrinho();
         Task<ResponseResult> AdicionarItemCarrinho(ItemCarrinhoDTO produto);
         Task<ResponseResult> AtualizarItemCarrinho(Guid produtoId, ItemCarrinhoDTO carrinho);
         Task<ResponseResult> RemoverItemCarrinho(Guid produtoId);
@@ -37,14 +37,14 @@ namespace NSE.Bff.Compras.Services
             return await DeserializarObjetoResponse<CarrinhoDTO>(response);
         }
 
-        //public async Task<int> ObterQuantidadeCarrinho()
-        //{
-        //    var response = await _httpClient.GetAsync("/carrinho-quantidade/");
+        public async Task<int> ObterQuantidadeCarrinho()
+        {
+            var response = await _httpClient.GetAsync("/carrinho-quantidade/");
 
-        //    TratarErrosResponse(response);
+            TratarErrosResponse(response);
 
-        //    return await DeserializarObjetoResponse<int>(response);
-        //}
+            return await DeserializarObjetoResponse<int>(response);
+        }
 
 
         public async Task<ResponseResult> AdicionarItemCarrinho(ItemCarrinhoDTO produto)
