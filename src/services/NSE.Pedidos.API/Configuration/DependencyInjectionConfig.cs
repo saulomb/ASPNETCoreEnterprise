@@ -26,7 +26,7 @@ namespace NSE.Pedidos.API.Configuration
             services.AddScoped<IRequestHandler<AdicionarPedidoCommand, ValidationResult>, PedidoCommandHandler>();
 
             // Events
-            //services.AddScoped<INotificationHandler<PedidoRealizadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoRealizadoEvent>, PedidoEventHandler>();
 
             // Application
             services.AddScoped<IMediatorHandler, MediatorHandler>();
