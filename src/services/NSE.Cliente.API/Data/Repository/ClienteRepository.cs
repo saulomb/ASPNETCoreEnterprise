@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NSE.Clientes.API.Models;
@@ -20,6 +21,16 @@ namespace NSE.Clientes.API.Data.Repository
         public async Task<IEnumerable<Cliente>> ObterTodos()
         {
             return await _context.Clientes.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<Endereco> ObterEnderecoPorId(Guid id)
+        {
+            return await _context.Enderecos.FirstOrDefaultAsync(e => e.ClienteId == id);
+        }
+
+        public void AdicionarEndereco(Endereco endereco)
+        {
+            _context.Enderecos.Add(endereco);
         }
 
         public Task<Cliente> ObterPorCpf(string cpf)

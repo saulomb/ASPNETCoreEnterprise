@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using NSE.Core.Communication;
 using NSE.WebApp.MVC.Models;
@@ -14,5 +15,12 @@ namespace NSE.WebApp.MVC.Services
         Task<ResponseResult> RemoverItemCarrinho(Guid produtoId);
 
         Task<ResponseResult> AplicarVoucherCarrinho(string voucher);
+
+
+        // Pedido
+        Task<ResponseResult> FinalizarPedido(PedidoTransacaoViewModel pedidoTransacao);
+        Task<PedidoViewModel> ObterUltimoPedido();
+        Task<IEnumerable<PedidoViewModel>> ObterListaPorClienteId();
+        PedidoTransacaoViewModel MapearParaPedido(CarrinhoViewModel carrinho, EnderecoViewModel endereco);
     }
 }
