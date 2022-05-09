@@ -34,11 +34,15 @@ namespace NSE.Catalogo.API
         {
             services.AddApiConfiguration(Configuration);
 
+            services.AddMessageBusConfiguration(Configuration);
+
             services.AddJwtConfiguration(Configuration);
 
             services.AddSwaggerConfiguration();
 
             services.RegisterServices(Configuration);
+
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

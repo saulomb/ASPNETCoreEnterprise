@@ -9,6 +9,9 @@ namespace NSE.Pedidos.API.Application.DTO
         public Guid Id { get; set; }
         public int Codigo { get; set; }
 
+
+        public Guid ClienteId { get; set; }
+
         public int Status { get; set; }
         public DateTime Data { get; set; }
         public decimal ValorTotal { get; set; }
@@ -26,6 +29,7 @@ namespace NSE.Pedidos.API.Application.DTO
             {
                 Id = pedido.Id,
                 Codigo = pedido.Codigo,
+                ClienteId = pedido.ClienteId,
                 Status = (int)pedido.PedidoStatus,
                 Data = pedido.DataCadastro,
                 ValorTotal = pedido.ValorTotal,
