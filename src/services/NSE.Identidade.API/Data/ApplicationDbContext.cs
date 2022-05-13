@@ -4,14 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using NetDevPack.Security.JwtSigningCredentials.Store.EntityFrameworkCore;
+using NetDevPack.Security.JwtSigningCredentials;
+using NSE.Identidade.API.Models;
 
 namespace NSE.Identidade.API.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext, ISecurityKeyContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
+
+        public DbSet<SecurityKeyWithPrivate> SecurityKeys { get; set; }
+
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 }
