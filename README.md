@@ -1,6 +1,5 @@
-# ASPNETCoreEnterprise
-Desenvolvimento do projeto ASP.NET Core Enterprise Applications
-Abrange:
+# ASPNETCore Enterprise Application
+Desenvolvimento do projeto E-Commerce em ASP.NET Core Abrangendo:
 - Microservices
 - Asp.Net Core Identity e Identity Server
 - Mensageria com RabbitMQ
